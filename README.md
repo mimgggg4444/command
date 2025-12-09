@@ -122,12 +122,6 @@ scan_project.bat > a.txt
 
 
 ```
-Get-ChildItem -Recurse -File |
-Where-Object { $_.FullName -notmatch "node_modules" } |
-ForEach-Object {
-    "==== FILE: $($_.FullName) ====";
-    Get-Content $_.FullName;
-    "`n"
-} | Out-File a.txt -Encoding UTF8
+Get-ChildItem -Recurse -Include *.js,*.ts,*.jsx,*.tsx,*.json | Where-Object {$_.FullName -notmatch 'node_modules|\.git|dist|build'} | ForEach-Object {"========== $($_.Name) ==========`n"; Get-Content $_.FullName; "`n"} | Out-File a.txt
 
 ```
