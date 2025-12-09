@@ -85,6 +85,7 @@ npx prisma generate
 npm init -y
 npm install express @prisma/client pg cors dotenv
 npm install -D prisma
+npm install -D prisma@7.0.0
 npx prisma init
 npx prisma db push
 npx prisma generate
