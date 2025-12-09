@@ -122,6 +122,12 @@ scan_project.bat > a.txt
 
 
 ```
-Get-ChildItem -Recurse -Include *.js,*.ts,*.jsx,*.tsx,*.json | Where-Object {$_.FullName -notmatch 'node_modules|\.git|dist|build'} | ForEach-Object {"========== $($_.Name) ==========`n"; Get-Content $_.FullName; "`n"} | Out-File a.txt
+# UTF-8 인코딩으로 저장
+Get-ChildItem -Recurse -Include *.js,*.ts,*.jsx,*.tsx,*.json | Where-Object {$_.FullName -notmatch 'node_modules|\.git|dist|build'} | ForEach-Object {
+    "========== $($_.Name) ==========" 
+    Get-Content $_.FullName -Encoding UTF8
+    ""
+    ""
+} | Out-File a.txt -Encoding UTF8
 
 ```
