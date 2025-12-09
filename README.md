@@ -95,3 +95,8 @@ chcp 949 > nul
 endlocal
 
 ```
+
+``` cmd
+scan_project.bat > a.txt
+```
+
